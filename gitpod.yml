@@ -1,0 +1,29 @@
+# List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
+tasks:
+  - name: Terminal 1
+  - init: echo 'init script' # runs during prebuild
+    command: echo 'start script'
+  - name: Terminal 2
+  - init: |
+      ( 
+        pip install pandas
+        pip3 install paho-mqtt python-etcd
+        pip install matplotlib
+        pip install streamlit
+        pip install mpld3
+        sudo apt-get install libsndfile1
+        pip install librosa
+      )
+  - name: terminal 3
+  - init: echo 'Teste'
+
+
+# List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
+ports:
+  - port: 1883
+  onOpen: ignore
+  - port: 8501
+    name: App
+    description: Feature audio extraction
+    onOpen: open-browser
+    visibility: public
