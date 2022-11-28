@@ -6,6 +6,7 @@ tasks:
   - name: Terminal 2
   - init: |
       ( 
+        pip3 install --upgrade pip
         pip install pandas
         pip3 install paho-mqtt python-etcd
         pip install matplotlib
