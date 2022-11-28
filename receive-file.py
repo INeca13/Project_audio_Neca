@@ -18,7 +18,7 @@ filename="my_data_audio.pkl"                        #input('diz-me')
 #filename="send-receive-file.7z"
 topic="AAIB/audio/Neca"
 qos=1
-data_block_size=7000
+data_block_size=2000
 file_out="copy2-"+filename
 fout=open(file_out,"wb") #use a different filename
 # for outfile as I'm running sender and receiver together
