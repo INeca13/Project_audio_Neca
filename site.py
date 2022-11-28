@@ -25,7 +25,7 @@ import librosa.display
 from PIL import Image
 #import scipy as sp  #se não der, colocar from scipy.fft import fft
 
-mqttBroker = "test.mosquitto.org"
+mqttBroker = "mqtt.eclipseprojects.io" #"test.mosquitto.org"
 # #"mqtt.eclipseprojects.io"
 client = mqtt.Client("Temperature_Inside")
 client.connect(mqttBroker)
@@ -113,7 +113,7 @@ st.sidebar.image(image, caption='Logo FCT/UNL')
 
 
 st.sidebar.header("Feature extration wizard")
-epochs_num = st.sidebar.slider("Tempo /s", 1, 60, key = int) #escolher tempo de recolha de dados
+epochs_num = st.sidebar.slider("Tempo /s", 1, 10, key = int) #escolher tempo de recolha de dados
 if st.sidebar.button("Start recording"):
     st.sidebar.write(epochs_num)
     #t = time.time()
