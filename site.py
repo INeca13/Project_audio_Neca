@@ -121,7 +121,7 @@ if st.sidebar.button("Start recording"):
     cronometro = time.time()
     st.write('Recording in progress') #informação de quando está a gravar
     while time.time() - cronometro < epochs_num+0.001: 
-        if int(time.time() - cronometro+0.5) == int(epochs_num): #acrescentei +0.5 para tentar compensar delay
+        if int(time.time() - cronometro) == int(epochs_num): #acrescentei +0.5 para tentar compensar delay
             st.write('Wait while the file is being received') #mostrar mensagem conforme o ficheri está a ser subscrito
     exec(open('receive-file.py').read())
     st.write('File received!')
