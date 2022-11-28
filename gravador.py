@@ -26,7 +26,7 @@ def send_file():
     filename="my_data_audio.pkl"
     topic="AAIB/audio/Neca"
     qos=1
-    data_block_size=2000
+    data_block_size=7000
     fo=open(filename,"rb")
     file_out="copy2-"+filename
     fout=open(file_out,"wb") #use a different filename
