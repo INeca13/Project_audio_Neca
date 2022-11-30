@@ -25,7 +25,7 @@ import librosa.display
 from PIL import Image
 #import scipy as sp  #se não der, colocar from scipy.fft import fft
 
-mqttBroker = "mqtt.eclipseprojects.io" #"test.mosquitto.org"
+mqttBroker = "test.mosquitto.org"
 # #"mqtt.eclipseprojects.io"
 client = mqtt.Client("Temperature_Inside")
 client.connect(mqttBroker)
@@ -113,19 +113,20 @@ st.sidebar.image(image, caption='Logo FCT/UNL')
 
 
 st.sidebar.header("Feature extration wizard")
-epochs_num = st.sidebar.slider("Tempo /s", 1, 10, key = int) #escolher tempo de recolha de dados
+epochs_num = st.sidebar.slider("Tempo /s", 1, 60, key = int) #escolher tempo de recolha de dados
 if st.sidebar.button("Start recording"):
     st.sidebar.write(epochs_num)
     #t = time.time()
     client.publish("AAIB/teste/Neca", epochs_num)
     cronometro = time.time()
-    st.write('Recording in progress') #informação de quando está a gravar
+    st.sidebar.write('Recording in progress') #informação de quando está a gravar
     while time.time() - cronometro < epochs_num+0.001: 
         if int(time.time() - cronometro) == int(epochs_num): #acrescentei +0.5 para tentar compensar delay
-            st.write('Wait while the file is being received') #mostrar mensagem conforme o ficheri está a ser subscrito
+            st.sidebar.write('Wait while the file is being received') #mostrar mensagem conforme o ficheri está a ser subscrito
     exec(open('receive-file.py').read())
-    st.write('File received!')
+    st.sidebar.write('File received!')
     #subscrever()
+
     
 
 
@@ -335,7 +336,8 @@ if button30:
             ) 
 
 
-
+    st.sidebar.write("O gráfico dinâmico é o mesmo que o primeiro, no entanto pode fazer zoom.")
+    st.sidebar.write("Use esta feature para sons relativamente curtos, de maneira a não dar lag no sistema.")
     button8 = st.sidebar.checkbox("Dinâmico")
     if button8:
         st.header("gráfico dinâmico")

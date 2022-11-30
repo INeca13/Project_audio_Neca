@@ -9,7 +9,7 @@
 import time
 import paho.mqtt.client as paho
 import hashlib
-broker = "mqtt.eclipseprojects.io" #"test.mosquitto.org"
+broker = "test.mosquitto.org"
 #broker="broker.hivemq.com"
 #broker="iot.eclipse.org"
 #broker="192.168.1.158"

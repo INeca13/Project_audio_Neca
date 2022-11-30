@@ -19,7 +19,7 @@ import librosa
 import hashlib
 #import IPython.display as ipd
 
-temporizador = time.time()
+#temporizador = time.time()
 
 def send_file():
     broker="test.mosquitto.org"
@@ -161,7 +161,7 @@ def send_file():
     time_taken=time.time()-start
     print("took ",time_taken)
     print("bytes sent =",bytes_out)
-    time.sleep(5)
+    time.sleep(2)
     client.disconnect() #disconnect
     client.loop_stop() #stop loop
     fout.close()
