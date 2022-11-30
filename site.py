@@ -115,7 +115,7 @@ st.sidebar.image(image, caption='Logo FCT/UNL')
 st.sidebar.header("Feature extration wizard")
 epochs_num = st.sidebar.slider("Tempo /s", 1, 60, key = int) #escolher tempo de recolha de dados
 if st.sidebar.button("Start recording"):
-    st.sidebar.write(epochs_num)
+    #st.sidebar.write(epochs_num)
     #t = time.time()
     client.publish("AAIB/teste/Neca", epochs_num)
     cronometro = time.time()
