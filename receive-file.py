@@ -5,7 +5,6 @@ import hashlib
 broker = "test.mosquitto.org"
 #broker="broker.hivemq.com"
 #broker="iot.eclipse.org"
-#broker="192.168.1.158"
 filename="my_data_audio.pkl"                        
 #filename="chinese-proverb.jpg"
 #filename="send-receive-file.7z"
