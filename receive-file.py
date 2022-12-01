@@ -1,10 +1,3 @@
-#! c:\python34\python3
-#!/usr/bin/env python
-##demo code provided by Steve Cope at www.steves-internet-guide.com
-##email steve@steves-internet-guide.com
-##Free to use for any purpose
-##If you like and use this code you can
-##buy me a drink here https://www.paypal.me/StepenCope
 """ Send File Using MQTT """
 import time
 import paho.mqtt.client as paho
@@ -13,7 +6,7 @@ broker = "test.mosquitto.org"
 #broker="broker.hivemq.com"
 #broker="iot.eclipse.org"
 #broker="192.168.1.158"
-filename="my_data_audio.pkl"                        #input('diz-me')
+filename="my_data_audio.pkl"                        
 #filename="chinese-proverb.jpg"
 #filename="send-receive-file.7z"
 topic="AAIB/audio/Neca"

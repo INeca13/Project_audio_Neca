@@ -175,20 +175,14 @@ def send_file():
 def audio_ficheiro_txt(RECORD_SECONDS):
     
     
-    
     #mqttBroker = "test.mosquitto.org"
     #client = mqtt.Client("Temperature_Inside")
     #client.connect(mqttBroker)
-    
-    
-    
-    #NOTA: VER SE ENVIO .WAV OU PICKLE
     
     CHUNK = 1024
     FORMAT = pyaudio.paInt16
     CHANNELS = 1
     RATE = 44100
-    #RECORD_SECONDS = 5
     WAVE_OUTPUT_FILENAME = "output.wav"
     
     p = pyaudio.PyAudio()
@@ -229,14 +223,6 @@ def audio_ficheiro_txt(RECORD_SECONDS):
     wf.close()
     
     
-    
-    
-    #abaixo, temos uma maneira de converter para um array de in16 o sinal de audio
-    #waveFile = wave_open('output.wav','rb')
-    #nframes = waveFile.getnframes()
-    #wavFrames = waveFile.readframes(nframes)
-    #ys = np.fromstring(wavFrames, dtype=np.int16) #temos o sinal mais bonito
-    
     audio_file = "output.wav"
     audio, sr = librosa.load(audio_file)
     
@@ -244,11 +230,11 @@ def audio_ficheiro_txt(RECORD_SECONDS):
     #plt.plot(audio)
     
     
-    #aqui é basicamente uma maneira de enviar e receber dados
-    #os 
+    
+     
     
     # fazer funções e fazer com que cada mqtt dê a respetiva variável
-    #df = pd.DataFrame(valores)
+    
     df4 = pd.DataFrame(audio)
     
     
@@ -259,18 +245,6 @@ def audio_ficheiro_txt(RECORD_SECONDS):
     
     send_file()
     
-    ########################################
-    #passar esta aprte para o gitpod
-    #df5 = pd.read_pickle("copy-my_data_audio.pkl")
-    #df6 = df5.to_numpy()
-    #df6 = df6.reshape((len(df6),))
-    #plt.plot(df6)
-    ########################################
-    
-    #df.to_pickle("my_data.pkl")
-    #exec(open("recieve-file.py").read())
-        #df2 = pd.read_pickle("copy-my_data.pkl")
-    #df3 = df2.to_numpy()
       
     
     
@@ -304,49 +278,11 @@ client = mqtt.Client("Smartphone")
 client.connect(mqttBroker)
 
 
-#metemos um while loop para que o programa esteja sempre a correr caso receba commandos
-#com frequencia
-#fim = 2*60
-#while time.time()-temporizador < fim:
-    #print(int(time.time()-temporizador))
-    #client.loop_start()
 x = []
-    #print(time.time()-temporizador)
+
 client.subscribe("AAIB/teste/Neca")
 client.on_message = on_message
-    #time.sleep(3)
-    #client.loop_stop()
 
 
-    
 
 client.loop_forever()
-#talvez, com isto podemos fornecer os parametros de gravação
-
-
-#ver se estamos a receber valore de record
-#se sim, ler e guardar o valor e
-#se record != [] , chamar a função de audio_ficheiro_txt(record = subscribe)
-#por fim,, record = []
-
-
-
-#subscribe([("my/topic", 0), ("another/topic", 2)])
-
-###############################################################################
-
-
-#client.subscribe("RECORD_SECONDS")
-#client.on_message = on_message
-#client.subscribe("CHUNK")
-#client.on_message = on_message2
-#time.sleep(4)
-#client.loop_stop()
-
-#def on_message(client, userdata, message):
- #   x.append(str(message.payload.decode("utf-8")))
-  #  e = list(map(float, x))
-   # print("Received message: ", e)
-#r = list(map(float, x)) #lista de string para float
-#r.pop(0) #o primeiro não conta
-#RECORD_SECONDS = r[-1]
